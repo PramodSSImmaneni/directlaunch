@@ -3,14 +3,15 @@
  */
 package com.examples.directlaunch;
 
+import org.apache.apex.api.Launcher;
+import org.apache.hadoop.conf.Configuration;
+
 import com.datatorrent.api.Attribute;
 import com.datatorrent.api.DAG;
 import com.datatorrent.api.DAG.Locality;
-import com.datatorrent.api.Launcher;
 import com.datatorrent.api.StreamingApplication;
 import com.datatorrent.api.annotation.ApplicationAnnotation;
 import com.datatorrent.lib.io.ConsoleOutputOperator;
-import org.apache.hadoop.conf.Configuration;
 
 @ApplicationAnnotation(name="MyFirstApplication")
 public class Application implements StreamingApplication
@@ -32,7 +33,7 @@ public class Application implements StreamingApplication
 
   public static void main(String[] args) throws Launcher.LaunchException {
     Configuration conf = new Configuration(true);
-    Launcher launcher = Launcher.getLauncher(Launcher.LaunchMode.CLUSTER);
+    Launcher launcher = Launcher.getLauncher(Launcher.LaunchMode.YARN);
     //Launcher launcher = Launcher.getLauncher(Launcher.LaunchMode.LOCAL);
     Attribute.AttributeMap launchAttributes = new Attribute.AttributeMap.DefaultAttributeMap();
     //launchAttributes.put(ClusterMode.LIB_JARS, "extra-transitive-dependencies-jars-for-operators");
