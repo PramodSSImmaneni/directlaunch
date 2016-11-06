@@ -31,7 +31,7 @@ public class Application implements StreamingApplication
     dag.addStream("randomData", randomGenerator.out, cons.input).setLocality(Locality.CONTAINER_LOCAL);
   }
 
-  public static void main(String[] args) throws Launcher.LaunchException {
+  public static void main(String[] args) throws Launcher.LauncherException {
     Configuration conf = new Configuration(true);
     Launcher launcher = Launcher.getLauncher(Launcher.LaunchMode.YARN);
     //Launcher launcher = Launcher.getLauncher(Launcher.LaunchMode.LOCAL);
